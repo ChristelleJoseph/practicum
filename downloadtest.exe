@@ -1,0 +1,3 @@
+#test tcp
+alert tcp any any -> any any (flags:S; flow:stateless; threshold: type both, track by_src, count 5, seconds 20; msg:"Possible TCP SYN Flood"; sid:1000003; rev:1;)
+hping3 -S --flood 192.168.1.191
